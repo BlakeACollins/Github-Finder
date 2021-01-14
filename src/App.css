@@ -369,7 +369,7 @@ table th {
 }
 
 .navbar a:hover {
-  color: var(--light-color);
+  color: purple;
 }
 
 .navbar .welcome span {
