@@ -8,11 +8,12 @@ import Navbar from './components/layouts/Navbar';
 import Search from './components/layouts/users/Search';
 import Users from './components/layouts/users/User';
 import Alert from './components/layouts/Alert';
-import About from './components/pages/About'
-
+import About from './components/pages/About';
+import UserPage from './components/layouts/users/UserPage';
 class App extends Component{
   state = {
     users: [],
+    user: {},
     loading: false,
     alert: null
   };
@@ -25,13 +26,13 @@ class App extends Component{
 
 // This code block will auto load 30 profiles from GitHub
 
-// async componentDidMount(){
-// this.setState({ loading: true});
+async componentDidMount(){
+   this.setState({ loading: true});
 
-//     const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+     const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
-//     this.setState({users: res.data, loading: false});
-//   };
+     this.setState({users: res.data, loading: false});
+   };
 
   //Search github
   searchUsers = async text => {
@@ -39,6 +40,19 @@ class App extends Component{
     const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     this.setState({users: res.data.items, loading: false});
+  }
+
+  //Get single GitHUb user for profile pages
+
+  getUser = async (username) => {
+    this.setState({ loading: true });
+
+    const res = await axios.get(
+      `https://api.github.com/search/users/${username}?client_id=${
+        process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${
+        process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+
+    this.setState({user: res.data, loading: false});
   }
 
   //Clear Users from search and current state.
@@ -53,7 +67,7 @@ class App extends Component{
 
   render() {
 
-    const {users, loading} = this.state;
+    const {users, user, loading} = this.state;
       
     return (
       <Router>
@@ -79,7 +93,20 @@ class App extends Component{
                
             </Fragment>
           )} />
-          <Route exact path='/about' component={About} />
+          <Route 
+          exact 
+          path='/about' 
+          component={About} />
+          <Route 
+          exact 
+          path ='/user/:login' 
+          render={props => (
+            <UserPage
+             {...props} 
+             getUser={this.getUser} 
+             user={user} 
+             loading={loading} />
+          )} />
         </Switch>
        
       </div>
