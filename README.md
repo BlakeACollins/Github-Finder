@@ -1,5 +1,5 @@
 # GitHub Profile Finder
-Search for anyone on this finder app! This app uses React, React Hooks, React Router, and Context API. 
+Search for anyone on this finder app! This app is made with React, React Hooks, React Router, and Context API. 
 
 # Usage
 npm install
