@@ -3,12 +3,12 @@ import Search from '../users/Search';
 import Users from '../users/Users'
 
 const Home = () => {
-    return(
+    return (
     <Fragment>
         <Search />
         <Users />
     </Fragment>
-   );
+    );
 };
 
 export default Home;
