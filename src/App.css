@@ -46,7 +46,7 @@ img {
   max-width: 1100px;
   margin: auto;
   overflow: hidden;
-  padding: 0 2rem;
+  
 }
 
 /* Text Styles*/
@@ -200,7 +200,7 @@ img {
 .btn {
   display: inline-block;
   background: var(--light-color);
-  color: #333;
+  color: blue;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -386,7 +386,7 @@ table th {
   .grid-2,
   .grid-3,
   .grid-4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 4fr;
   }
 
   /* Text Styles */
