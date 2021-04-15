@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: rgba(71, 171, 230, 0.63);
+  --primary-color: rgba(3, 57, 88, 0.9);
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #e02a3c;
@@ -20,8 +20,8 @@ body {
   font-family: 'Roboto', sans-serif, Arial;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  background-color: #d3d3d3;
+  color: #000;
 }
 
 a {
@@ -30,7 +30,7 @@ a {
 }
 
 a:hover {
-  color: #666;
+  color: teal;
 }
 
 ul {
@@ -113,7 +113,7 @@ img {
 /* Cards */
 .card {
   padding: 1rem;
-  border: #ccc 1px dotted;
+  border: #000 1px dotted;
   margin: 0.7rem 0;
 }
 
@@ -370,7 +370,7 @@ table th {
 }
 
 .navbar a:hover {
-  color: purple;
+  color: teal;
 }
 
 .navbar .welcome span {
