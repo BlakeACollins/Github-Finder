@@ -33,7 +33,7 @@ const Search = () => {
         <input
           type='submit'
           value='Search'
-          className='btn btn-dark btn-block'
+          className='btn btn-primary btn-block'
         />
       </form>
       {githubContext.users.length > 0 && (
